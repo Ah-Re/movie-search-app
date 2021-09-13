@@ -1,0 +1,40 @@
+<%- include("header") -%>
+<body>
+    <div class="title-banner">
+        <h1>Movie Search</h1>
+    </div>
+
+    <div class="search-section">
+        <form action="/" method="POST">
+            <input class="input-area" type="text" name="userMoviePick" autocomplete="off">
+            <button class="search-button" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="movie-container">
+        <div class="left">
+            <img src="<%= moviePoster %>" alt="">
+        </div>
+        <div class="right">
+            <h1 class="movie-title-text"><%= movieTitle %></h1>
+            <p><%= moviePlot %></p>
+            <div class="critic-reviews">
+                <div class="imdb-review">
+                    <img class="imdb-image" src="images/imdb_logo.png" alt="imdb-logo">
+                    <p class="imdb-text"><%= imdbRating %></p>
+                </div>
+                <div class="rotten-tomato-reviews">
+                    <img class="rotten-tomato-image" src="images/rotten-tomato-logo.jpeg" alt="rotten-tomato-logo">
+                    <p class="rotten-tomato-text"><%= rottenTomatoRating %></p>
+                </div>
+                <div class="metacritic-reviews">
+                    <img class="metacritic-image" src="images/metacritic.jpeg" alt="metacritic-image">
+                    <p class="metacritic-text"><%= metaCriticRating %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("footer") -%>
+</body>
+
+</html>
