@@ -3,6 +3,15 @@ const express = require('express');
 const app = express();
 const https = require('https');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/moviesDB');
+
+const userSchema = ({
+    email: String,
+    password: String
+})
+
+const User = mongoose.model("User", userSchema);
 
 app.set('view engine', 'ejs');
 
@@ -16,6 +25,37 @@ let movie = "";
 app.get("/", function (req, res) {
     res.render("home");
 
+})
+
+app.get("/register", function(req, res) {
+    res.render("register");
+})
+
+app.post("/register", function(req, res) {
+    const newUser = new User({
+        email: req.body.email,
+        password: req.body.password
+    });
+
+    newUser.save(function(err) {
+        if (!err) {
+            res.render("home");
+        }
+    });
+})
+
+app.get("/login", function(req, res) {
+    res.render("login");
+})
+
+app.post("/login", function(req, res) {
+    User.findOne({email: req.body.email}, function(err, result) {
+        if (!err) {
+            if (result.password === req.body.password) {
+                res.render("home");
+            }
+        }
+    })
 })
 
 app.post("/", function(req, res) {

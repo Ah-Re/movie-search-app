@@ -22,6 +22,10 @@ h1 {
     padding: 1rem;
 }
 
+button {
+    font-family: 'Oswald';
+}
+
 .search-section {
     text-align: center;
 }
@@ -87,3 +91,62 @@ h1 {
     color: white;
     text-align: center;
 }
+
+.sign-up-form {
+    background-color: black;
+    margin: 3rem auto auto;
+    height: 400px;
+    overflow-x: hidden;
+    text-align: center;
+    width: 500px;
+}
+
+.email-input {
+    font-family: 'Oswald';
+    margin: 1rem 2rem 1rem;
+    width: 80%;
+
+
+}
+
+.password-input {
+    font-family: 'Oswald';
+    margin: 1rem 2rem 1rem;
+
+    width: 80%;
+
+}
+
+
+.register-button {
+    border: none;
+    margin: auto;
+    height: 2rem;
+    text-transform: uppercase;
+    width: 50%;
+}
+
+.register-button:hover {
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.register-title {
+    color: white;
+    text-align: center;
+}
+
+.login-notification {
+    color: white;
+    margin-top: 0;
+
+}
+
+.login-link {
+    font-weight: 700;
+}
+
+
+

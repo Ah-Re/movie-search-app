@@ -1,0 +1,15 @@
+<%- include("header") -%>
+
+<body>
+<%- include("footer") -%>
+<div class="sign-up-form">
+    <h1 class="register-title">Log In</h1>
+    <form action="/login" method="POST">
+        <input class="email-input" type="text" name="email">
+        <input class="password-input" type="password" name="password">
+        <p class="login-notification">Don't have an account? <a href ="/register" class="login-link">Register</a></p>
+        <button class="register-button" type="submit">Login</button>
+    </form>
+</div>
+</body>
+</html>

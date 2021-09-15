@@ -1,0 +1,16 @@
+<%- include("header") -%>
+
+<body>
+    <div class="sign-up-form">
+        <h1 class="register-title">Create Your Account</h1>
+        <form action="/register" method="POST">
+            <input class="email-input" type="text" name="email">
+            <input class="password-input" type="password" name="password">
+            <p class="login-notification">Already a member? <a href ="/login" class="login-link">Login</a></p>
+            <button class="register-button" type="submit">Register</button>
+        </form>
+    </div>
+    <%- include("footer") -%>
+</body>
+
+</html>
