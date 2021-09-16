@@ -148,5 +148,9 @@ button {
     font-weight: 700;
 }
 
+.movie-error-message {
+    text-align: center;
+}
+
 
 

@@ -1,0 +1,20 @@
+<%- include("header") -%>
+
+<body>
+    <div class="title-banner">
+        <h1>Movie Search</h1>
+    </div>
+    <div class="search-section">
+        <form action="/" method="POST">
+            <input class="input-area" type="text" name="userMoviePick" autocomplete="off">
+            <button class="search-button" type="submit">Search</button>
+        </form>
+    </div>
+
+    <h2 class="movie-error-message">Couldn't find your movie, please try again.</h2>
+
+
+    <%- include("footer") -%>
+</body>
+
+</html>

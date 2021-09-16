@@ -4,14 +4,10 @@ const app = express();
 const https = require('https');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/moviesDB');
+const passport = require('passport');
+const session = require('express-session');
+const passportLocalMongoose = require('passport-local-mongoose');
 
-const userSchema = ({
-    email: String,
-    password: String
-})
-
-const User = mongoose.model("User", userSchema);
 
 app.set('view engine', 'ejs');
 
@@ -19,7 +15,35 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(__dirname + '/public'));
 
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+  }))
+
+  app.use(passport.initialize());
+  app.use(passport.session());
+
+  mongoose.connect('mongodb://localhost:27017/moviesDB');
+
+
+const userSchema = mongoose.Schema({
+    email: String,
+    password: String
+})
+
+userSchema.plugin(passportLocalMongoose);
+
+const User = mongoose.model("User", userSchema);
+
 let movie = "";
+
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
 
 
 app.get("/", function (req, res) {
@@ -32,16 +56,21 @@ app.get("/register", function(req, res) {
 })
 
 app.post("/register", function(req, res) {
-    const newUser = new User({
-        email: req.body.email,
-        password: req.body.password
-    });
-
-    newUser.save(function(err) {
-        if (!err) {
-            res.render("home");
+    User.register({username: req.body.email}, req.body.password, function(err, user) {
+        if (err) {
+            console.log(err);
         }
-    });
+        else {
+            passport.authenticate('local', function(err) {
+                if (err) { 
+                    console.log(err) 
+                } else {
+                    res.redirect("/");
+                }
+                
+                
+              })(req, res);
+    }})
 })
 
 app.get("/login", function(req, res) {
@@ -49,13 +78,23 @@ app.get("/login", function(req, res) {
 })
 
 app.post("/login", function(req, res) {
-    User.findOne({email: req.body.email}, function(err, result) {
-        if (!err) {
-            if (result.password === req.body.password) {
-                res.render("home");
-            }
+    const user = new User({
+        username: req.body.email,
+        password: req.body.password
+    });
+    
+
+    req.login(user, function(err) {
+        if (err) { 
+            console.log(err); 
         }
-    })
+        else {
+            passport.authenticate("local", function(){
+                res.redirect("/");
+            })(req, res);
+        }
+        
+      });
 })
 
 app.post("/", function(req, res) {
@@ -90,6 +129,7 @@ app.post("/", function(req, res) {
                                         metaCriticRating: metaCriticRating})
             } catch (e) {
                 console.error(e.message);
+                res.render("movie-error");
             }
         });
 
