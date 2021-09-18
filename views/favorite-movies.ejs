@@ -1,0 +1,16 @@
+<%- include("header") -%>
+<div class="title-banner">
+    <h1>Movie Search</h1>
+    
+</div>
+
+<body>
+<% movies.forEach(function(movie) { %>
+    
+    <img src="<%= movie.movieUrl %>">
+    <p><%= movie.name %></p>
+<% }) %>
+    <%- include("footer") -%>
+</body>
+
+</html

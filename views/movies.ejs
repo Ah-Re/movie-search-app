@@ -2,6 +2,7 @@
 <body>
     <div class="title-banner">
         <h1>Movie Search</h1>
+        <a href="/favoritemovies">Favorite Movies</a>
     </div>
 
     <div class="search-section">
@@ -31,7 +32,11 @@
                     <p class="metacritic-text"><%= metaCriticRating %></p>
                 </div>
             </div>
+            <form action="/addToMovieList" method="post">
+            <button class="add-to-favorites-button" type="submit">Add Movie to Favorites</button>
+        </form>
         </div>
+        
     </div>
 
     <%- include("footer") -%>

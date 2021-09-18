@@ -152,5 +152,29 @@ button {
     text-align: center;
 }
 
+.add-to-favorites-button {
+    background-color: black;
+    border: none;
+    color: white;
+    margin-left: auto;
+    padding: 0.7rem;
+}
+
+.add-to-favorites-button:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.favorite-movies-link {
+    float: right;
+    margin-top: 2rem;
+    padding-right: 1rem;
+}
+
+.web-title {
+    display: inline-block;
+    margin-bottom: 0;
+}
 
 
