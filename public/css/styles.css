@@ -1,14 +1,15 @@
 body, html {
-    background-color: #FFD523;
-    font-family: 'Oswald';
+    color: white;
+    background-color: #2A0944;
+    font-family: 'Fauna One';
     margin: 0;
     
 }
 
 .title-banner {
-    background-color: black;
+    background-color: #2A0944;
     color: white;
-    font-family: 'Rampart One';
+    font-family: 'Cinzel';
     text-align: center;
     margin-top: 0;
 }
@@ -81,7 +82,7 @@ button {
     grid-template-columns: 1fr 1fr 1fr;
 }
 .footer {
-    background-color: black;
+    background-color: #3B185F;
     position: fixed;
     margin: auto;
     bottom: 0;
