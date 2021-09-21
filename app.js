@@ -44,6 +44,7 @@ const User = mongoose.model("User", userSchema);
 
 let movie = "";
 let movieUrl = "";
+let log = "";
 
 passport.use(User.createStrategy());
 
@@ -54,7 +55,13 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.get("/", function (req, res) {
-    res.render("home");
+    console.log(req.user);
+    if (req.user) {
+        log = "Logout";
+    } else {
+        log = "Login";
+    }
+    res.render("home", {log: log});
 
 })
 
@@ -86,6 +93,13 @@ app.get("/login", function (req, res) {
     res.render("login");
 })
 
+app.get("/logout", function(req, res) {
+    req.session.destroy(function(err) {
+        res.redirect("/login");
+    })
+    
+})
+
 app.get("/favoriteMovies", function (req, res) {
     if (req.user) {
         console.log("I know that we have a user");
@@ -97,7 +111,7 @@ app.get("/favoriteMovies", function (req, res) {
         })
 
     } else {
-        console.log("Log in, you bitch.");
+        res.redirect("/login");
     }
 })
 

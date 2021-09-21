@@ -178,4 +178,10 @@ button {
     margin-top: 1rem;
 }
 
+.nav-links {
+    position: absolute;
+    right: 0;
+    top: 1rem;
+}
+
 
