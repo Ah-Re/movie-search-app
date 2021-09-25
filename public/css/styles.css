@@ -14,6 +14,14 @@ body, html {
     margin-top: 0;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
 .movie-title-text {
     padding-left: 0;
 }
@@ -24,7 +32,7 @@ h1 {
 }
 
 button {
-    font-family: 'Oswald';
+    font-family: 'Fauna One';
 }
 
 .search-section {
@@ -32,20 +40,31 @@ button {
 }
 
 .input-area {
-    font-family: 'Oswald';
+    font-family: 'Fauna One';
 }
 
 .search-button {
-    font-family: 'Oswald';
+    font-family: 'Fauna One';
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 0.3rem;
+}
+
+.search-button:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
 }
 
 .movie-container {
-
+    border: 2px solid white;
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
+    padding: 1rem;
     width: 700px;
 }
 
@@ -103,7 +122,7 @@ button {
 }
 
 .email-input {
-    font-family: 'Oswald';
+    font-family: 'Fauna One';
     margin: 1rem 2rem 1rem;
     width: 80%;
 
@@ -111,7 +130,7 @@ button {
 }
 
 .password-input {
-    font-family: 'Oswald';
+    font-family: 'Fauna One';
     margin: 1rem 2rem 1rem;
 
     width: 80%;
@@ -121,7 +140,7 @@ button {
 
 .register-button {
     border: none;
-    margin: auto;
+    margin: 3rem auto auto auto;
     height: 2rem;
     text-transform: uppercase;
     width: 50%;
@@ -154,6 +173,7 @@ button {
 }
 
 .add-to-favorites-button {
+    font-family: 'Fauna One';
     background-color: black;
     border: none;
     color: white;
@@ -168,20 +188,46 @@ button {
 }
 
 .favorite-movies-link {
+    font-family: 'Fauna One';
     position: absolute;
     right: 1rem;
     margin-top: 2rem;
+    text-decoration: none;
+}
+
+.favorite-movies-link:visited {
+    text-decoration: none;
 }
 
 .web-title {
+    border: 2px solid white;
     display: inline-block;
     margin-top: 1rem;
 }
 
 .nav-links {
+    font-family: 'Fauna One';
+    text-decoration: none;
     position: absolute;
-    right: 0;
+    right: 2rem;
     top: 1rem;
 }
+
+.nav-links a {
+    padding-right: 2rem;
+}
+
+.fave-movie-list {
+    float: left;
+    text-align: center;
+}
+
+.fave-movie-list img {
+    height: 350px;
+    width: 250px;
+    padding-left: 2rem;
+}
+
+
 
 

@@ -138,7 +138,7 @@ app.post("/addToMovieList", function (req, res) {
     if (req.isAuthenticated()) {
         User.findById(req.user.id, function (err, foundUser) {
             foundUser.movieList.push({
-                name: movie,
+                name: movie.toUpperCase(),
                 movieUrl: movieUrl
             });
             foundUser.save();
@@ -183,7 +183,8 @@ app.post("/", function (req, res) {
                     imdbSource: imdbSource,
                     imdbRating: imdbRating,
                     rottenTomatoRating: rottenTomatoRating,
-                    metaCriticRating: metaCriticRating
+                    metaCriticRating: metaCriticRating,
+                    log: log
                 })
             } catch (e) {
                 console.error(e.message);

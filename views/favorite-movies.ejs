@@ -7,9 +7,10 @@
 
 <body>
 <% movies.forEach(function(movie) { %>
-    
+    <div class="fave-movie-list">
     <img src="<%= movie.movieUrl %>">
     <p><%= movie.name %></p>
+</div>
 <% }) %>
     <%- include("footer") -%>
 </body>
